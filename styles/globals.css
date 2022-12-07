@@ -1,16 +1,68 @@
+:root{
+  --black: rgb(0, 0, 0);
+  --white: rgb(255, 255, 255);
+  --blue: #0070f3;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    width: 100%;
+    height: 100vh;
 }
 
+*::selection{
+  background-color: var(--black);
+  color: var(--white);
+}
+.bold{
+  font-weight: bold;
+}
+/* forme */
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding-top: 2rem;
+
+}
+input{
+  border: none;
+  border-bottom: 2px solid var(--black);
+  width: clamp(270px, 300px, 40vw);
+  min-height: 30px;
+  font-size: large;
+  padding: 9px;
+  transition: 2s;
+}
+input:hover{
+  background-color: var(--white);
+}
+button{
+  background-color: var(--blue);
+  color: var(--white);
+  width: 200px;
+  min-height: 30px;
+  border: none;
+  border-radius: 20px;
+  font-size: large;
+  padding: 10px;
+  transition: 1s;
+}
 a {
   color: inherit;
   text-decoration: none;
+  transition: 1.2s;
+  user-select: none;
 }
-
+a:hover{
+  color: var(--blue);
+}
 * {
   box-sizing: border-box;
 }
@@ -20,7 +72,21 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: var(--white);
+    background: var(--black);
   }
+}
+
+.off {
+  background-color: #444;
+}
+.off div {
+  inset: 5px 5px 5px auto;
+}
+
+.on {
+  background-color: var(--blue);
+}
+.on div {
+  inset: 5px auto 5px 5px;
 }

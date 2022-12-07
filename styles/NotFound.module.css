@@ -1,0 +1,26 @@
+.notFound{
+    padding: 0 2rem;
+    width: clamp(250px, 900px, 100vw);
+    margin: 3rem auto;
+    border-left: 3px solid black;
+}
+.ovde{
+    text-decoration: underline;
+    font-weight: 600;
+}
+.h1{
+    font-size: 7ch;
+}
+.h2{
+    font-size: 3ch;
+}
+.p{
+    font-size: 2.5ch;
+}
+.emoji{
+    background-image: url(../public/emoji.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+}

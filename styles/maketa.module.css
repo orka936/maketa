@@ -1,0 +1,48 @@
+.maketa{
+    background-image: url('../public/maketa.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: clamp(350px, 786px, 75vw);
+    height: clamp(336.7px, 757.5px, 72vw);
+    margin: 3rem auto;
+}
+.button1{
+    width: clamp(45px, 134.8px, 15%);
+    height: clamp(25px ,52px, 5vw);
+    top: 51%;
+    left: 16%;
+    position: relative;
+}
+.button2{
+    position: relative;
+    width: clamp(45px, 134.8px, 15%);
+    height: clamp(25px ,52px, 5vw);
+    transform: rotate(90deg);
+    top: 30%;
+    left: 23%; 
+}
+.button3{
+    position: relative;
+    width: clamp(45px, 134.8px, 15%);
+    height: clamp(25px ,52px, 5vw);
+    top: 39%;
+    left: 29%;
+}
+.button4{
+    position: relative;
+    width: clamp(45px, 134.8px, 15%);
+    height: clamp(25px ,52px, 5vw);
+    top: 39%;
+    left: 33%;
+}
+
+.kuglica{
+    width: clamp(22.5px, 67.4px, 40%);
+    height: clamp(20px ,42px, 4vw);
+    border-radius: 100%;
+    background-color: var(--white);
+    z-index: 100;
+    position: absolute;
+    inset: 5px auto 5px 5px;
+}
