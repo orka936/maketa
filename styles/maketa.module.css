@@ -1,5 +1,5 @@
 .maketa{
-    background-image: url('../public/maketa.jpg');
+    background-image: url('../public/maketa.png');
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -26,14 +26,14 @@
     position: relative;
     width: clamp(45px, 134.8px, 15%);
     height: clamp(25px ,52px, 5vw);
-    top: 39%;
+    top: 38%;
     left: 29%;
 }
 .button4{
     position: relative;
     width: clamp(45px, 134.8px, 15%);
     height: clamp(25px ,52px, 5vw);
-    top: 39%;
+    top: 38%;
     left: 33%;
 }
 
