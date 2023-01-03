@@ -15,7 +15,7 @@ const Register = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Dobrodošli na <span className={styles.blue}>Sign-up</span>
+          Dobrodošli na <span className={styles.blue}>Vežbe</span>
         </h1>
 
         <p className={styles.description}>
@@ -36,7 +36,7 @@ const Register = () => {
       {/* Futer */}
       <footer className={styles.footer}>
         <p>
-          sva prava zadržava <span className={styles.blue}>orka</span>
+          powered by <span className={styles.blue}>orka</span>
         </p>
       </footer>
     </div>

@@ -17,7 +17,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Dobrodošli na <span className={styles.blue}>Log-in</span>
+          Dobrodošli na <span className={styles.blue}>Vežbe</span>
         </h1>
 
         <p className={styles.description}>
@@ -33,7 +33,7 @@ export default function Home() {
       {/* Futer */}
       <footer className={styles.footer}>
         <p>
-          sva prava zadržava <span className={styles.blue}>orka</span>
+          powered by <span className={styles.blue}>orka</span>
         </p>
       </footer>
     </div>

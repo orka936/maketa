@@ -14,12 +14,26 @@ body {
     height: 100vh;
 }
 
+::-webkit-scrollbar{
+  width: 1rem;
+}
+::-webkit-scrollbar-track{
+  background-color: var(--white);
+  padding: 1rem 0;
+}
+::-webkit-scrollbar-thumb{
+  background-color: var(--blue);
+}
+
 *::selection{
   background-color: var(--black);
   color: var(--white);
 }
 .bold{
   font-weight: bold;
+}
+p{
+  color: var(--black);
 }
 /* forme */
 form{
@@ -53,6 +67,9 @@ button{
   font-size: large;
   padding: 10px;
   transition: 1s;
+}
+button:active {
+  background-color: #00397b;
 }
 a {
   color: inherit;

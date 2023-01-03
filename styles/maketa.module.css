@@ -46,3 +46,21 @@
     position: absolute;
     inset: 5px auto 5px 5px;
 }
+
+.merenja {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    flex-direction: column;
+}
+.merenja p{
+    font-size: medium;
+    font-weight: 700;
+}
+.rez{
+    border: 2px solid black;
+    width: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
