@@ -58,9 +58,15 @@
     font-weight: 700;
 }
 .rez{
-    border: 2px solid black;
+    border: 2px solid var(--black);
     width: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.svi{
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
