@@ -66,7 +66,7 @@ const Maketa = () => {
                 <div className={Styles.kontrole}>
                     <div className={Styles.btn3}>
                         <button className={`${Styles.kuglica} ${b1a ? 'on' : 'off'}`} onClick={() => {
-                            set(ref(database, "r1"), 1);
+                            set(ref(database, "r1"), 0);
                             setB1a(true);
                             setB1b(false);
                         }}></button>
@@ -190,7 +190,7 @@ const Maketa = () => {
                 <div className={Styles.merenjaBtn}>
                     <button className={`${vol ? 'OFF' : 'ON'}`} onClick={() => {
                         
-                        if((b1a || b1b) && b2 && b3 && b4a && b6 && b8 && b9)
+                        if(((b1a || b1b) && b2 && b3 && b4a && b6 && b8 && b9 && +b5==0 && +b7==0 && +b10a==0 && +b10b==0 && +b11a==0 && +b11b==0 && +b12==0) || ((b1a || b1b) && b2 && b4a && b6 && b8 && b9 && +b5==0 && +b7==0 && +b10a==0 && +b10b==0 && +b11a==0 && +b11b==0 && +b12==0))
                         {
                             console.log("Dobro uradjeno!");
                             setVol(true);
