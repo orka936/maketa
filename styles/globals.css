@@ -108,15 +108,38 @@ a:hover{
 }
 
 .off {
-  background-color: #444;
-}
-.off div {
-  inset: 5px 5px 5px auto;
+  background-color: #FFFFFF !important;
+  justify-self: end;
 }
 
+
 .on {
-  background-color: var(--blue);
+  background-color: #FF0000 !important;
+  justify-self: start;
 }
-.on div {
-  inset: 5px auto 5px 5px;
+
+
+.Off {
+  display: none;
+}
+
+.On {
+  display: block;
+}
+
+
+.OFF {
+  background-color: gray !important;
+}
+
+
+.ON {
+  background-color: #0070f3 !important;
+}
+
+.off3{
+  background-color: #FFFFFF !important;
+}
+.on3{
+  background-color: #FF0000 !important;
 }
