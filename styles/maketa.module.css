@@ -1,3 +1,41 @@
+
+
+    .uputstvo{
+        position: absolute;
+        top: 1rem;
+        left: 3rem;
+    }
+
+    .btnUp{
+        width: 70px;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+    }
+    .btnUp:hover{
+        background-color: #969696;
+    }
+    .leg{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .box1Primer{
+        width: 40px;
+        height: 20px;
+        background-color: #FF0000;
+    }
+    .box2Primer{
+        width: 40px;
+        height: 20px;
+        background-color: orange;
+    }
+    .linePrimer{
+        width: 80px;
+        height: 15px;
+        background-color: #FF0000;
+    }
+
     .main{
         width: 100%;
         display: grid;
@@ -76,6 +114,10 @@
         height: 2.2%;
         position: absolute;
         opacity: 0.8;
+    }
+
+    .wrong{
+        background-color: orange !important;
     }
 
     .c1a{

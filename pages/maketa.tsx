@@ -6,7 +6,7 @@ import { ref, set, onValue } from "firebase/database";
 
 
 const Maketa = () => {
-    
+
     const [b1a, setB1a] = useState(false);
     const [b1b, setB1b] = useState(false);
     const [b2, setB2] = useState(false);
@@ -24,12 +24,14 @@ const Maketa = () => {
     const [b11b, setB11b] = useState(false);
     const [b12, setB12] = useState(false);
 
-    const [vol, setVol] = useState(false);
+    const [up, setUp] = useState(false);
 
     const [parametar, setParametar] = useState("");
     const [parametar2, setParametar2] = useState("");
     const [parametar3, setParametar3] = useState("");
     const [parametar4, setParametar4] = useState("");
+
+    
 
     useEffect(() => {
         onValue(ref(database, "r1"), (snapshot) => setB1b(!!snapshot.val()));
@@ -39,29 +41,73 @@ const Maketa = () => {
         onValue(ref(database, "r5"), (snapshot) => setB6(!!snapshot.val()));
         onValue(ref(database, "r6"), (snapshot) => setB8(!!snapshot.val()));
         onValue(ref(database, "r7"), (snapshot) => setB9(!!snapshot.val()));
-        onValue(ref(database, "vol"), (snapshot) => setVol(!!snapshot.val()));
     }, []);
 
     return (
         <>
+        <div className={Styles.uputstvo}><a onClick={()=>setUp(!up)}><b>UPUTSTVO</b></a></div>
+        <div className={up ? "zad" : "none"}>
+            <h2>Zadatak 3:</h2>
+            <h4>Cilj zadatka jeste povezati kolo, tako da se maketa napaja baterijom, da struja prolazi kroz sijalicu,
+                <br />slučaj a: struja prolazi kroz R1 <br /> slučaj b: struja ne prolazi kroz R1
+            </h4>
+            <p><b><i>legenda</i></b></p>
+            <div className={Styles.leg}>
+                <div className={Styles.box1Primer}></div>
+                <h3>prespojen jumper</h3>
+            </div>
+            <div className={Styles.leg}>
+                <div className={Styles.box2Primer}></div>
+                <h3>prespojen jumper(netacan)</h3>
+            </div>
+            <div className={Styles.leg}>
+                <div className={Styles.linePrimer}></div>
+                <h3>tok struje</h3>
+            </div>
+            
+            <button className={Styles.btnUp} onClick={()=>setUp(false)}>X</button>
+        </div>
             <div className={Styles.main}>
                 <div className={Styles.maketa}>
-                    <div className={`${Styles.box} ${Styles.c1a} ${b1a ? 'On' : 'Off'}`}></div>
+
+                    <svg width="524" height="505" viewBox="0 0 524 505" fill="none" xmlns="http://www.w3.org/2000/svg" className={`
+                        ${b1b ? "a1" : ""}
+                        ${(b1b && b2 && !b3) ? "a2" : ""}
+                        ${(b1b && b2 && b4a && !b3) ? "a3" : ""}
+                        ${(b1b && b2 && b4a && !b3 && !b5 && b6 && !b11a) ? "a4" : ""}
+                        ${(b1b && b2 && b4a && !b3 && !b5 && b6 && !b7 && b8 && !b7) ? "a5" : ""}
+                        ${(b1b && b2 && b4a && !b3 && !b5 && b6 && !b7 && b8 && !b7 && b9) ? "a6" : ""}
+                    `}>
+                        <path d="M101.5 411V327.5H45L45.5 178.5H102V190H204.5V179H491.5L492 473H101.5V422" stroke="#FF0000" strokeWidth="5"/>
+                    </svg>
+                    <svg width="524" height="505" viewBox="0 0 524 505" fill="none" xmlns="http://www.w3.org/2000/svg" className={`
+                        ${b1b ? "a1" : ""}
+                        ${(b1b && b2 && b3) ? "a2a" : ""}
+                        ${(b1b && b2 && b4a && b3) ? "a3a" : ""}
+                        ${(b1b && b2 && b4a && b3 && !b5 && b6 && !b11a) ? "a4a" : ""}
+                        ${(b1b && b2 && b4a && b3 && !b5 && b6 && !b7 && b8 && !b7) ? "a5a" : ""}
+                        ${(b1b && b2 && b4a && b3 && !b5 && b6 && !b7 && b8 && !b7 && b9) ? "a6a" : ""}
+                    `}>
+                        <path d="M101.5 411V327.5H45L45.5 178.5H102V233L174 232.5V190H204.5V179H491.5L492 473L101.5 473.5V422" stroke="#FF0000" strokeWidth="5"/>
+                    </svg>
+                    
+                    
+                    <div className={`${Styles.box} ${Styles.c1a} ${Styles.wrong} ${b1a ? 'On' : 'Off'}`}></div>
                     <div className={`${Styles.box} ${Styles.c1b} ${b1b ? 'On' : 'Off'}`}></div>
                     <div className={`${Styles.box} ${Styles.c2} ${b2 ? 'On' : 'Off'}`}></div>
                     <div className={`${Styles.box} ${Styles.c3} ${b3 ? 'On' : 'Off'}`}></div>
                     <div className={`${Styles.box} ${Styles.c4a} ${b4a ? 'On' : 'Off'}`}></div>
-                    <div className={`${Styles.box} ${Styles.c4b} ${b4b ? 'On' : 'Off'}`}></div>
-                    <div className={`${Styles.box} ${Styles.c5} ${b5 ? 'On' : 'Off'}`}></div>
+                    <div className={`${Styles.box} ${Styles.c4b} ${Styles.wrong} ${b4b ? 'On' : 'Off'}`}></div>
+                    <div className={`${Styles.box} ${Styles.c5}  ${Styles.wrong}  ${b5 ? 'On' : 'Off'}`}></div>
                     <div className={`${Styles.box} ${Styles.c6} ${b6 ? 'On' : 'Off'}`}></div>
-                    <div className={`${Styles.box} ${Styles.c7} ${b7 ? 'On' : 'Off'}`}></div>
+                    <div className={`${Styles.box} ${Styles.c7} ${Styles.wrong} ${b7 ? 'On' : 'Off'}`}></div>
                     <div className={`${Styles.box} ${Styles.c8} ${b8 ? 'On' : 'Off'}`}></div>
                     <div className={`${Styles.box} ${Styles.c9} ${b9 ? 'On' : 'Off'}`}></div>
-                    <div className={`${Styles.box} ${Styles.c10a} ${b10a ? 'On' : 'Off'}`}></div>
-                    <div className={`${Styles.box} ${Styles.c10b} ${b10b ? 'On' : 'Off'}`}></div>
-                    <div className={`${Styles.box} ${Styles.c11a} ${b11a ? 'On' : 'Off'}`}></div>
-                    <div className={`${Styles.box} ${Styles.c11b} ${b11b ? 'On' : 'Off'}`}></div>
-                    <div className={`${Styles.box} ${Styles.c12} ${b12 ? 'On' : 'Off'}`}></div>
+                    <div className={`${Styles.box} ${Styles.c10a} ${Styles.wrong} ${b10a ? 'On' : 'Off'}`}></div>
+                    <div className={`${Styles.box} ${Styles.c10b} ${Styles.wrong} ${b10b ? 'On' : 'Off'}`}></div>
+                    <div className={`${Styles.box} ${Styles.c11a} ${Styles.wrong} ${b11a ? 'On' : 'Off'}`}></div>
+                    <div className={`${Styles.box} ${Styles.c11b} ${Styles.wrong} ${b11b ? 'On' : 'Off'}`}></div>
+                    <div className={`${Styles.box} ${Styles.c12} ${Styles.wrong} ${b12 ? 'On' : 'Off'}`}></div>
                 </div>
                 <div className={Styles.kontrole}>
                     <div className={Styles.btn3}>
@@ -149,12 +195,10 @@ const Maketa = () => {
                             setB10b(false);
                         }}></button>
                         <button className={`${Styles.kuglica} ${(b10a || b10b) ? 'on' : 'off'}`} onClick={() => {
-                            set(ref(database, "r1"), 0);
                             setB10a(false);
                             setB10b(false);
                         }}></button>
                         <button className={`${Styles.kuglica} ${b10b ? 'on' : 'off'}`} onClick={() => {
-                            set(ref(database, "r1"), 1);
                             setB10a(false);
                             setB10b(true);
                         }}></button>
@@ -166,12 +210,10 @@ const Maketa = () => {
                             setB11b(false);
                         }}></button>
                         <button className={`${Styles.kuglica} ${(b11a || b11b) ? 'on' : 'off'}`} onClick={() => {
-                            set(ref(database, "r1"), 0);
                             setB11a(false);
                             setB11b(false);
                         }}></button>
                         <button className={`${Styles.kuglica} ${b11b ? 'on' : 'off'}`} onClick={() => {
-                            set(ref(database, "r1"), 1);
                             setB11a(false);
                             setB11b(true);
                         }}></button>
@@ -188,12 +230,11 @@ const Maketa = () => {
 
             <div className={Styles.merenja}>
                 <div className={Styles.merenjaBtn}>
-                    <button className={`${vol ? 'OFF' : 'ON'}`} onClick={() => {
+                    <button onClick={() => {
                         
                         if(((b1a || b1b) && b2 && b3 && b4a && b6 && b8 && b9 && +b5==0 && +b7==0 && +b10a==0 && +b10b==0 && +b11a==0 && +b11b==0 && +b12==0) || ((b1a || b1b) && b2 && b4a && b6 && b8 && b9 && +b5==0 && +b7==0 && +b10a==0 && +b10b==0 && +b11a==0 && +b11b==0 && +b12==0))
                         {
                             console.log("Dobro uradjeno!");
-                            setVol(true);
                             onValue(ref(database, "Vr"), (snapshot) => { setParametar(snapshot.val());});
                             onValue(ref(database, "Vs"), (snapshot) => { setParametar2(snapshot.val());});
                             onValue(ref(database, "R"), (snapshot) => { setParametar3(snapshot.val());});
@@ -218,10 +259,11 @@ const Maketa = () => {
                         <p>R= {parametar3} Ω</p>
                     </div>
                     <div className={Styles.rez}>
-                        <p>I= {parametar4} A</p>
+                        <p>I= {+parametar4*1000} mA</p>
                     </div>
                 </div>
             </div>
+            
         </>
     );
 }
