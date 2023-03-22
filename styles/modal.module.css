@@ -1,0 +1,82 @@
+.opener{
+    padding: 0.2rem 1rem;
+    user-select: none;
+    width: fit-content;
+    transition: 1s;
+}
+.opener:hover{
+    color: var(--blue);
+}
+
+.modal {
+    position: fixed !important;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .modalContent {
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 5px;
+    width: clamp(380px, 900px, 95vw);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    animation: modal-enter 1.5s ease-out forwards;
+    color: black;
+  }
+  
+  .modalContent button{
+    width: 3rem;
+    position: absolute;
+    right: 2rem;
+  }
+
+  .modalContent button:hover{
+    background-color: gray;
+  }
+
+  @keyframes modal-enter {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  
+  .modal.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+
+  .leg{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    }
+    .jumper{
+        width: 80px;
+        height: 15px;
+    }
+  .box1Primer{
+    width: 40px;
+    height: 20px;
+    background-color: #FF0000;
+    }
+.box2Primer{
+    width: 40px;
+    height: 20px;
+    background-color: orange;
+    }
+.linePrimer{
+    width: 80px;
+    height: 15px;
+    background-color: #FF0000;
+    }

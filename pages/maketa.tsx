@@ -3,6 +3,7 @@ import Styles from '../styles/maketa.module.css';
 import database from '../utils/db';
 
 import { ref, set, onValue } from "firebase/database";
+import Modal from '../utils/modal';
 
 
 const Maketa = () => {
@@ -45,28 +46,14 @@ const Maketa = () => {
 
     return (
         <>
-        <div className={Styles.uputstvo}><a onClick={()=>setUp(!up)}><b>UPUTSTVO</b></a></div>
-        <div className={up ? "zad" : "none"}>
-            <h2>Zadatak 3:</h2>
-            <h4>Cilj zadatka jeste povezati kolo, tako da se maketa napaja baterijom, da struja prolazi kroz sijalicu,
-                <br />slučaj a: struja prolazi kroz R1 <br /> slučaj b: struja ne prolazi kroz R1
-            </h4>
-            <p><b><i>legenda</i></b></p>
-            <div className={Styles.leg}>
-                <div className={Styles.box1Primer}></div>
-                <h3>prespojen jumper</h3>
-            </div>
-            <div className={Styles.leg}>
-                <div className={Styles.box2Primer}></div>
-                <h3>prespojen jumper(netacan)</h3>
-            </div>
-            <div className={Styles.leg}>
-                <div className={Styles.linePrimer}></div>
-                <h3>tok struje</h3>
-            </div>
-            
-            <button className={Styles.btnUp} onClick={()=>setUp(false)}>X</button>
-        </div>
+        
+            <Modal>
+                <h2>Vežba 5:</h2>
+                <h4>Povezati kolo, tako da se maketa napaja baterijom i da struja prolazi kroz sijalicu,
+                <br />slučaj a: struja prolazi kroz R1, očitati rezultate merenja  <br /> slučaj b: struja ne prolazi kroz R1, ponovno očitati rezultate
+                </h4>
+            </Modal>
+
             <div className={Styles.main}>
                 <div className={Styles.maketa}>
 
@@ -126,7 +113,7 @@ const Maketa = () => {
                             setB1a(false);
                             setB1b(true);
                         }}></button>
-                        <p>JP1</p>
+                        <p className={Styles.jpName}>JP1</p>
                     </div>
                     <div className={Styles.btn}>
                         <button className={`${Styles.kuglica} ${b2 ? 'on' : 'off'}`} onClick={() =>{
@@ -158,7 +145,7 @@ const Maketa = () => {
                             setB4a(false);
                             setB4b(true);
                         }}></button>
-                        <p>JP4</p>
+                        <p className={Styles.jpName}>JP4</p>
                     </div>
                     <div className={Styles.btn}>
                         <button className={`${Styles.kuglica} ${b5 ? 'on' : 'off'}`} onClick={() => setB5(!b5)}></button>
@@ -250,13 +237,13 @@ const Maketa = () => {
                 <p>prikaži rezultate merenja u realnom vremenu</p>
                 <div className={Styles.svi}>
                     <div className={Styles.rez}>
-                        <p>Ur= {parametar} V</p>
+                        <p>Vr= {parametar ? parametar : "-"} V</p>
                     </div>
                     <div className={Styles.rez}>
-                        <p>Us= {parametar2} V</p>
+                        <p>Vs= {parametar2 ? parametar2 : "-"} V</p>
                     </div>
                     <div className={Styles.rez}>
-                        <p>R= {parametar3} Ω</p>
+                        <p>S= {parametar3 ? parametar3 : "-"} Ω</p>
                     </div>
                     <div className={Styles.rez}>
                         <p>I= {+parametar4*1000} mA</p>
