@@ -46,7 +46,7 @@ const Maketa = () => {
 
     return (
         <>
-            <h1 className={Styles.naslov}>Vežba 5</h1>
+            <h1 className={Styles.naslov}>Vežba 05: Električno kolo sa sijalicom</h1>
             <Modal>
                 <h2>Vežba 5:</h2>
                 <h3>Povezati kolo, tako da se maketa napaja baterijom(BAT. 9V) i da struja prolazi kroz sijalicu </h3>

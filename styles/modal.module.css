@@ -7,7 +7,7 @@
     width: fit-content;
     transition: 1s;
     margin: 0 1rem;
-    font-size: 2rem;
+    font-size: clamp(1rem, 2rem, 6vw) ;
 }
 .opener:hover{
     color: var(--blue);
