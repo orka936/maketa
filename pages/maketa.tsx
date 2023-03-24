@@ -46,12 +46,35 @@ const Maketa = () => {
 
     return (
         <>
-        
+            <h1 className={Styles.naslov}>Vežba 5</h1>
             <Modal>
                 <h2>Vežba 5:</h2>
-                <h4>Povezati kolo, tako da se maketa napaja baterijom i da struja prolazi kroz sijalicu,
-                <br />slučaj a: struja prolazi kroz R1, očitati rezultate merenja  <br /> slučaj b: struja ne prolazi kroz R1, ponovno očitati rezultate
-                </h4>
+                <h3>Povezati kolo, tako da se maketa napaja baterijom(BAT. 9V) i da struja prolazi kroz sijalicu </h3>
+
+                <h3>
+                    slučaj a: JP3 je uključen, struja ne prolazi kroz R1, očitati rezultate merenja struje, napona Vs - na sijalici, Vr - na otporniku,
+                    <br />Izračunati (Omov zakon) otpornost sijalice Rs.
+                </h3>
+
+                <h3>
+                    Zatim slučaj b: isključiti JP3, sada struja prolazi kroz R1, ponovno očitati rezultate merenja struje i napona,
+                    <br />Ponovno izračunati (Omov zakon) otpornost sijalice Rs.
+                </h3>
+
+                <h2>
+                    Pitanja:
+                </h2>
+                <h3>
+                    Da li je dobijena vrednost otpornosti sijalice ista
+                    u slučaju a i b ?
+                </h3>
+                <h3>
+                    Štaje to PTC (pozitivni temperaturni
+                    koeficijent)?
+                </h3>
+                <h3>
+                    Objasniti dobijene rezultate.
+                </h3>
             </Modal>
 
             <div className={Styles.main}>
@@ -243,7 +266,7 @@ const Maketa = () => {
                         <p>Vs= {parametar2 ? parametar2 : "-"} V</p>
                     </div>
                     <div className={Styles.rez}>
-                        <p>S= {parametar3 ? parametar3 : "-"} Ω</p>
+                        <p>Rs= {parametar3 ? parametar3 : "-"} Ω</p>
                     </div>
                     <div className={Styles.rez}>
                         <p>I= {+parametar4*1000} mA</p>

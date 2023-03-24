@@ -19,12 +19,16 @@
     .jpName{
         right: -21% !important;
     }
-
+    .naslov{
+        inset: 5px 0 auto 0;
+        text-align: center;
+        margin: 0 auto;
+    }
     .main{
         width: 100%;
         display: grid;
         grid-template-columns: 70% 30%;
-        margin: 4rem 0;
+        margin: 1.2rem 0;
         gap: 1rem;
     }
     .maketa{
@@ -218,6 +222,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .rez p{
+        font-size: large;
     }
     .svi{
         display: flex;

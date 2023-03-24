@@ -23,6 +23,10 @@ svg{
   transition-duration: 2s;
 }
 
+Modal2{
+  overflow-y: auto;
+}
+
 .a1{
   stroke-dashoffset: 1370;
 }

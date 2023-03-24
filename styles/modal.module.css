@@ -1,16 +1,21 @@
+.meni{
+  display: flex;
+  justify-content: space-between;
+}
 .opener{
-    padding: 0.2rem 1rem;
     user-select: none;
     width: fit-content;
     transition: 1s;
+    margin: 0 1rem;
+    font-size: 2rem;
 }
 .opener:hover{
     color: var(--blue);
 }
 
 .modal {
-    position: fixed !important;
-    inset: 0;
+    position: absolute !important;
+    inset: 1rem 0 auto 0;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
@@ -61,10 +66,6 @@
     align-items: center;
     gap: 1rem;
     }
-    .jumper{
-        width: 80px;
-        height: 15px;
-    }
   .box1Primer{
     width: 40px;
     height: 20px;
@@ -80,3 +81,12 @@
     height: 15px;
     background-color: #FF0000;
     }
+
+.help1{
+  width: clamp(300px, 600px, 80vw);
+  height: clamp( 180px , 353px, 47vw);
+}
+.help2{
+  width: clamp(300px, 600px, 80vw);
+  height: clamp( 125px , 250px, 33vw);
+}
