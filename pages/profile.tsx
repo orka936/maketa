@@ -47,7 +47,7 @@ const Profile = () => {
             <div className={Styles.right}>
                 <div className={Styles.dashboard}>
                     <div className={Styles.basicInfo}>
-                        <h2>{user?.displayName}</h2>
+                        <h2>Dobrodošli na vežbe</h2>
                     </div>
                     
                     <Image src="/logout.png" width={90} height={90} alt="help" className={Styles.LogOutImg} onClick={signOut}></Image>
