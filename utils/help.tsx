@@ -24,7 +24,7 @@ interface Modal {
         createPortal(
         <div className={Style.modal} onClick={handleModal} >
             <div onClick={(e) => e.stopPropagation()} className={Style.modalContent}>
-                <button className={Style.exit} onClick={handleModal}>X</button>
+                <button className={Style.exit} onClick={handleModal}>x</button>
                 {children}
                 <h2>Džamperi:</h2>
                 <h3>

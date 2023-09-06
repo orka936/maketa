@@ -1,9 +1,36 @@
 import Head from 'next/head'
 import styles from '../styles/Prijava.module.css'
 import Link from 'next/link'
-//sfc
+
+
+
+import { FirebaseApp } from '../firebase-config';
+import { getAuth, signInWithPopup, GoogleAuthProvider} from 'firebase/auth'
+import { useRouter } from 'next/router';
+import { userAccessToken } from '../utils/fetchUserDetails';
+
 
 export default function Home() {
+
+  const firebaseAuth = getAuth(FirebaseApp);
+  const provider = new GoogleAuthProvider();
+  const router = useRouter();
+
+  const signIn = () =>{
+    if(localStorage.getItem('accsessToken')){
+      router.push('/profile');
+    }else{
+      signInWithPopup(firebaseAuth, provider).then(({user}) => {
+        const { refreshToken, providerData } = user;
+      
+        localStorage.setItem('user', JSON.stringify(providerData));
+        localStorage.setItem('accsessToken', JSON.stringify(refreshToken));
+  
+        router.push('profile');
+      }).catch(e => console.log(e));
+    }
+    
+  };
 
   return (
     <div className={styles.container}>
@@ -24,10 +51,10 @@ export default function Home() {
           Stranu za prijavljivanje
         </p>
         {/* Log-in formna */}
-        <form action="">
-        <Link href='./maketa'><button type='submit'>Nastavi</button></Link>
-          <Link href="./register" className={styles.little}>u koliko nemate nalog</Link>
-        </form>
+        <div className='form'>
+        <button onClick={signIn} type='button' className='button'>Nastavi</button>
+          <p className={styles.little}>čak i ako nemate nalog</p>
+        </div>
       </main>
 
       {/* Futer */}

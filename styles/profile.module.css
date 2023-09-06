@@ -1,0 +1,200 @@
+.full{
+    display: grid;
+    grid-template-columns: clamp(80px , 19%, 300px) auto;
+}
+
+.nav{
+    background-image: linear-gradient(#252525, #181818, black);
+    height: 100vh;
+}
+
+.naslov{
+    width: 100%;
+    font-size: clamp(19px, 3vw, 51px);
+    padding-left: clamp(-10px, 20%, 60px);
+    color: white !important;
+}
+
+.navBar{
+    height: 40rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    flex-direction: column;
+}
+
+.right{
+    background-color: #D9D9D9;
+    color: black;
+}
+.dashboard{
+    width: 100%;
+    height: clamp( 3rem, 6vw, 7rem);
+    color: #181818;
+    font-size: clamp(15px, 2vw, 24px);
+    border-bottom: 1.6px solid #252525 !important; /* */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.basicInfo{
+    display: flex;
+    width: 100%;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.LogOutImg{
+    width: clamp(30px, 5vw, 60px);
+    height: clamp(30px, 5vw, 60px);
+    user-select: none;
+    padding: 0.2rem;
+    margin-right: 0.5rem;
+}
+.HelpImg{
+    position: absolute;
+    width: clamp(36px, 4vw, 80px);
+    height: clamp(36px, 4vw, 80px);
+    user-select: none;
+}
+.dashboard h2{
+    padding-left: clamp(-10px, 10%, 60px);
+}
+
+.main{
+    padding-left: clamp(10px, 4%, 45px);
+    padding-right: clamp(10px, 4%, 45px);
+}
+
+.ov{
+    color: #181818;
+    font-size: clamp(15px, 2vw, 24px);
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+}
+.ov2{
+    color: #181818;
+    font-size: clamp(14px, 2vw, 23px);
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    padding-top: 5rem;
+}
+.ov2Link{
+    color: var(--blue);
+    text-decoration: underline;
+}
+.vezbe{
+    height: clamp(18rem, 23vw, 20rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: scroll;
+    gap: 2rem;
+    max-width: clamp(300px, 74vw, 1700px);
+    margin: auto;
+}
+.vezbe::-webkit-scrollbar-track{
+    background-color: #D9D9D9;
+}
+.vezba{
+    background-color: black;
+    width: 470px;
+    min-width: 370px;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.slikaMakete{
+    width: 262px;
+    height: 252px;
+    padding: 1rem;
+}
+.vezba h1{
+    color: white;
+    font-weight: 600;
+    font-size: 30px;
+    padding-left: 1rem;
+}
+.vezba p{
+    padding-left: 0.9rem;
+    font-size: clamp(15px, 1.1vw, 27px);
+}
+.evidencija{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: clamp(10px, 4%, 45px);
+    gap: clamp(10px, 3%, 45px);
+}
+.summary{
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.34);
+    width: clamp(300px, 60%, 1020px);
+    height: 27rem;
+    padding-right: clamp(50px, 10vw, 150px);
+    padding-left: clamp(10px, 5vw, 50px);
+}
+.summary h2{
+    width: 100%;
+    text-align: center;
+    padding-bottom: 2rem;
+    font-weight: 600;
+}
+.table{
+    width: 100%;
+}
+.linija{
+    display: grid;
+    grid-template-columns: 55% 35% 10%;
+    font-size: clamp(9px, 0.8vw, 16px);
+    gap: 10px;
+}
+.linija p{
+    color: black !important;
+}
+
+.desno{
+    display: flex;
+    gap: 3rem;
+}
+.done{
+    width: clamp(300px , 37%, 600px);
+    height: 24rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.34);
+    color: #181818;
+    padding-top: 0.6rem;
+    padding-left: 2rem;
+}
+.done h2{
+    font-size: xx-large;
+}
+.done p{
+    color: #181818 !important;
+    font-weight: 400;
+    font-size: large;
+}
+.timePick{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+
+
+@media screen and (max-width: 1075px) {
+    .summary{
+        width: 90%;
+        margin-bottom: clamp(10px, 4%, 45px);
+    }
+    .done{
+        width: 80%;
+    }
+}

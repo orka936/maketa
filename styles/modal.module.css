@@ -90,3 +90,10 @@
   width: clamp(300px, 600px, 80vw);
   height: clamp( 125px , 250px, 33vw);
 }
+
+.exit{
+  background-color: var(--blue);
+  font-weight: 600;
+  border-radius: 20px;
+  font-size: larger;
+}

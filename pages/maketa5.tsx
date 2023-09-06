@@ -6,7 +6,7 @@ import { ref, set, onValue } from "firebase/database";
 import Modal from '../utils/modal';
 
 
-const Maketa = () => {
+const Maketa5 = () => {
 
     const [b1a, setB1a] = useState(false);
     const [b1b, setB1b] = useState(false);
@@ -34,14 +34,47 @@ const Maketa = () => {
 
     
 
+    useEffect(() => {
+        onValue(ref(database, "r1"), (snapshot) => setB1b(!!snapshot.val()));
+        onValue(ref(database, "r2"), (snapshot) => setB2(!!snapshot.val()));
+        onValue(ref(database, "r3"), (snapshot) => setB3(!!snapshot.val()));
+        onValue(ref(database, "r4"), (snapshot) => setB4a(!!snapshot.val()));
+        onValue(ref(database, "r5"), (snapshot) => setB6(!!snapshot.val()));
+        onValue(ref(database, "r6"), (snapshot) => setB8(!!snapshot.val()));
+        onValue(ref(database, "r7"), (snapshot) => setB9(!!snapshot.val()));
+    }, []);
+
     return (
         <>
-            <h1 className={Styles.naslov}>Test Maketa</h1>
+            <h1 className={Styles.naslov}>Vežba 05: Električno kolo sa sijalicom</h1>
             <Modal>
-                <h2>Vežba: Test</h2>
-                <h3>Zadatak ove vežbe je upoznavanje sa okruženjem u kojem ćete raditi vežbe</h3>
-                <h3>Ovoj stranici pristup ima svaki učenik i bez zakazivanja!</h3>
-                <h3>Promene na ovoj maketi neće se prenositi na fizičku maketu!</h3>
+                <h2>Vežba 5:</h2>
+                <h3>Povezati kolo, tako da se maketa napaja baterijom(BAT. 9V) i da struja prolazi kroz sijalicu </h3>
+
+                <h3>
+                    slučaj a: JP3 je uključen, struja ne prolazi kroz R1, očitati rezultate merenja struje, napona Vs - na sijalici, Vr - na otporniku,
+                    <br />Izračunati (Omov zakon) otpornost sijalice Rs.
+                </h3>
+
+                <h3>
+                    Zatim slučaj b: isključiti JP3, sada struja prolazi kroz R1, ponovno očitati rezultate merenja struje i napona,
+                    <br />Ponovno izračunati (Omov zakon) otpornost sijalice Rs.
+                </h3>
+
+                <h2>
+                    Pitanja:
+                </h2>
+                <h3>
+                    Da li je dobijena vrednost otpornosti sijalice ista
+                    u slučaju a i b ?
+                </h3>
+                <h3>
+                    Štaje to PTC (pozitivni temperaturni
+                    koeficijent)?
+                </h3>
+                <h3>
+                    Objasniti dobijene rezultate.
+                </h3>
             </Modal>
 
             <div className={Styles.main}>
@@ -91,14 +124,17 @@ const Maketa = () => {
                 <div className={Styles.kontrole}>
                     <div className={Styles.btn3}>
                         <button className={`${Styles.kuglica} ${b1a ? 'on' : 'off'}`} onClick={() => {
+                            set(ref(database, "r1"), 0);
                             setB1a(true);
                             setB1b(false);
                         }}></button>
                         <button className={`${Styles.kuglica} ${(b1a || b1b) ? 'on' : 'off'}`} onClick={() =>{ 
+                            set(ref(database, "r1"), 0);
                             setB1a(false);
                             setB1b(false);
                         }}></button>
                         <button className={`${Styles.kuglica} ${b1b ? 'on' : 'off'}`} onClick={() => {
+                            set(ref(database, "r1"), 1);
                             setB1a(false);
                             setB1b(true);
                         }}></button>
@@ -106,26 +142,31 @@ const Maketa = () => {
                     </div>
                     <div className={Styles.btn}>
                         <button className={`${Styles.kuglica} ${b2 ? 'on' : 'off'}`} onClick={() =>{
+                            set(ref(database, "r2"), +!b2);
                             setB2(!b2);
                         }}></button>
                         <p>JP2</p>
                     </div>
                     <div className={Styles.btn}>
                         <button className={`${Styles.kuglica} ${b3 ? 'on' : 'off'}`} onClick={() => {
+                            set(ref(database, "r3"), +!b3);
                             setB3(!b3);
                         }}></button>
                         <p>JP3</p>
                     </div>
                     <div className={Styles.btn3}>
                         <button className={`${Styles.kuglica} ${b4a ? 'on' : 'off'}`} onClick={() => {
+                            set(ref(database, "r4"), 1);
                             setB4a(true);
                             setB4b(false);
                         }}></button>
                         <button className={`${Styles.kuglica} ${(b4a || b4b) ? 'on' : 'off'}`} onClick={() => {
+                            set(ref(database, "r4"), 0);
                             setB4a(false);
                             setB4b(false);
                         }}></button>
                         <button className={`${Styles.kuglica} ${b4b ? 'on' : 'off'}`} onClick={() => {
+                            set(ref(database, "r4"), 0);
                             setB4a(false);
                             setB4b(true);
                         }}></button>
@@ -137,6 +178,7 @@ const Maketa = () => {
                     </div>
                     <div className={Styles.btn}>
                         <button className={`${Styles.kuglica} ${b6 ? 'on' : 'off'}`} onClick={() => {
+                            set(ref(database, "r5"), +!b6);
                             setB6(!b6);
                         }}></button>
                         <p>JP6</p>
@@ -147,12 +189,14 @@ const Maketa = () => {
                     </div>
                     <div className={Styles.btn}>
                         <button className={`${Styles.kuglica} ${b8 ? 'on' : 'off'}`} onClick={() => {
+                            set(ref(database, "r6"), +!b8);
                             setB8(!b8);
                         }}></button>
                         <p>JP8</p>
                     </div>
                     <div className={Styles.btn}>
                         <button className={`${Styles.kuglica} ${b9 ? 'on' : 'off'}`} onClick={() => {
+                            set(ref(database, "r7"), +!b9);
                             setB9(!b9);
                         }}></button>
                         <p>JP9</p>
@@ -194,8 +238,46 @@ const Maketa = () => {
                 </div>
             </div>
             
+
+
+            <div className={Styles.merenja}>
+                <div className={Styles.merenjaBtn}>
+                    <button className='button' onClick={() => {
+                        
+                        if(((b1a || b1b) && b2 && b3 && b4a && b6 && b8 && b9 && +b5==0 && +b7==0 && +b10a==0 && +b10b==0 && +b11a==0 && +b11b==0 && +b12==0) || ((b1a || b1b) && b2 && b4a && b6 && b8 && b9 && +b5==0 && +b7==0 && +b10a==0 && +b10b==0 && +b11a==0 && +b11b==0 && +b12==0))
+                        {
+                            console.log("Dobro uradjeno!");
+                            onValue(ref(database, "Vr"), (snapshot) => { setParametar(snapshot.val());});
+                            onValue(ref(database, "Vs"), (snapshot) => { setParametar2(snapshot.val());});
+                            onValue(ref(database, "R"), (snapshot) => { setParametar3(snapshot.val());});
+                            onValue(ref(database, "I"), (snapshot) => { setParametar4(snapshot.val());});
+                        }
+                        else
+                        {
+                            alert("Kolo nije dobro povezano!");
+                        }
+
+                    }}>proveri i prikaži</button>
+                </div>
+                <p>prikaži rezultate merenja u realnom vremenu</p>
+                <div className={Styles.svi}>
+                    <div className={Styles.rez}>
+                        <p>Vr= {parametar ? parametar : "-"} V</p>
+                    </div>
+                    <div className={Styles.rez}>
+                        <p>Vs= {parametar2 ? parametar2 : "-"} V</p>
+                    </div>
+                    <div className={Styles.rez}>
+                        <p>Rs= {parametar3 ? parametar3 : "-"} Ω</p>
+                    </div>
+                    <div className={Styles.rez}>
+                        <p>I= {+parametar4*1000} mA</p>
+                    </div>
+                </div>
+            </div>
+            
         </>
     );
 }
 
-export default Maketa;
+export default Maketa5;

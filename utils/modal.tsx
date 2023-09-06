@@ -29,7 +29,7 @@ interface Modal {
         createPortal(
         <div className={Style.modal} onClick={handleModal} >
             <div onClick={(e) => e.stopPropagation()} className={Style.modalContent}>
-                <button className={Style.exit} onClick={handleModal}>X</button>
+                <button className={Style.exit} onClick={handleModal}>x</button>
                 {children}
                 <p><b><i>legenda</i></b></p>
                 <div className={Style.leg}>
