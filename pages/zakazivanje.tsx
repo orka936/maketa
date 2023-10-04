@@ -4,8 +4,11 @@ import Image from 'next/image'
 import { userAccessToken, fetchUser } from '../utils/fetchUserDetails';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+
 import DateTimePicker from 'react-datetime-picker';
 import 'react-datetime-picker/dist/DateTimePicker.css';
+import 'react-calendar/dist/Calendar.css';
+import 'react-clock/dist/Clock.css';
 
 type ValuePiece = Date | null;
 
@@ -65,6 +68,7 @@ const Zakazivanje = () => {
                 <div className={Styles.timePick}>
                     <DateTimePicker onChange={onChange} value={value} />
                 </div>
+                
                 <div className={Styles.timePick}>
                     <button className='button'>zakaži</button>
                 </div>

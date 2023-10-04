@@ -216,9 +216,7 @@ a:hover{
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+  
   body {
     color: var(--white);
     background: var(--black);
