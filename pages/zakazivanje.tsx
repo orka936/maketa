@@ -10,12 +10,19 @@ import 'react-datetime-picker/dist/DateTimePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
 
+import { getFirestore } from "firebase/firestore";
+import { collection, doc, addDoc, setDoc } from "firebase/firestore";
+import { FirebaseApp } from '../firebase-config';
+
+
 type ValuePiece = Date | null;
 
 type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 
 const Zakazivanje = () => {
+
+    const db = getFirestore(FirebaseApp);//---------------------FIRESTORE
 
     const router = useRouter();
     const [user, setUser] = useState({});
@@ -44,6 +51,8 @@ const Zakazivanje = () => {
 
     const [value, onChange] = useState<Value>(new Date());
 
+    
+
     return (
         <div className={Styles.full}>
             <div className={Styles.nav}>
@@ -70,7 +79,30 @@ const Zakazivanje = () => {
                 </div>
                 
                 <div className={Styles.timePick}>
-                    <button className='button'>zakaži</button>
+                    <button className='button' onClick={() =>{
+                        console.log(value, user?.uid);
+                        const usersRef = collection(db, "user");
+                        try {
+                            setDoc(doc(usersRef, `${user?.uid}`), {
+                                date: value,
+                                id: user.uid 
+                            });
+                        } catch (e) {
+                            addDoc(collection(db, "user"), {
+                                date: value,
+                                id: user?.uid
+                            });
+                        }
+                            
+                            
+                        
+                      
+                    }}>zakaži</button>
+                </div>
+                <div className={Styles.obavestenje}>
+                    <p>Moguće je zakazati samo jedan termin!</p>
+                    <p>Sledeći termin je moguće zakazati tek nakon što prisustvujete prvom(ili on istekne)</p>
+                    <p>U koliko zakažete više termina od jednom, rezervacija će važiti samo za poslednji, ostali će biti izbrisani!</p>
                 </div>
                 
             </div>

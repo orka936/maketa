@@ -186,7 +186,15 @@
     justify-content: center;
     padding: 1rem;
 }
-
+.obavestenje{
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    font-size: clamp(15px, 30px, 2vw);
+}
+.obavestenje p{
+    color: black !important;
+}
 
 @media screen and (max-width: 1075px) {
     .summary{

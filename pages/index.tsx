@@ -10,6 +10,8 @@ import { useRouter } from 'next/router';
 import { userAccessToken } from '../utils/fetchUserDetails';
 
 
+
+
 export default function Home() {
 
   const firebaseAuth = getAuth(FirebaseApp);
@@ -31,6 +33,7 @@ export default function Home() {
     }
     
   };
+
 
   return (
     <div className={styles.container}>
