@@ -58,23 +58,23 @@ const Profile = () => {
                         <div className={Styles.vezba}>
                             <div>
                                 <h1>Vežba: 05</h1>
-                                <p>Elektricno kolo sa sijalicom i sa (ili bez) otpornika R1.</p>
+                                <p>Elektricno kolo sa sijalicom i sa (ili bez) otpornika R1</p>
                             </div>
                             <Image src="/maketa5.png" width={524} height={505} className={Styles.slikaMakete} alt='maketa'></Image>
                         </div>
                         <div className={Styles.vezba}>
                             <div>
-                                <h1>Vežba: 02</h1>
-                                <p>Elektricno kolo bez sijalice i sa otpornikom R2.</p>
+                                <h1>Vežba: 01</h1>
+                                <p>Elektricno kolo sa dva kondenzatora</p>
                             </div>
                             <Image src="/maketa2.jpg" width={524} height={505} className={Styles.slikaMakete} alt='maketa'></Image>
                         </div>
                         <div className={Styles.vezba}>
                             <div>
-                                <h1>Vežba: 07</h1>
-                                <p>Kolo sa ili bez sijalice i sa ili bez otpornika R3.</p>
+                                <h1>Vežba: 02</h1>
+                                <p>Elektricno kolo bez sijalice i sa dva otpornika</p>
                             </div>
-                            <Image src="/maketa5.png" width={524} height={505} className={Styles.slikaMakete} alt='maketa'></Image>
+                            <Image src="/maketa2.jpg" width={524} height={505} className={Styles.slikaMakete} alt='maketa'></Image>
                         </div>
                     </div>
                     <div className={Styles.evidencija}>
@@ -92,27 +92,27 @@ const Profile = () => {
 
 
                                 <div className={Styles.linija}>
-                                    <p>Vežba:   Električno kolo - merenja</p>
+                                    <p>Vežba:   Električno kolo sa sijalicom</p>
                                     <div className={Styles.desno}>
-                                    <p>Vezba br. 2</p>
+                                    <p>Vezba br. 5</p>
                                     <div className={'diff easy'}>
                                         <p>Easy</p>
                                     </div>
                                     </div>
                                 </div>
                                 <div className={Styles.linija}>
-                                    <p>Vežba:   Električno kolo sa sijalicom</p>
+                                    <p>Vežba:   Električno kolo sa dva kondenzatora</p>
                                     <div className={Styles.desno}>
-                                    <p>Vezba br. 5</p>
+                                    <p>Vezba br. 1</p>
                                     <div className={'diff medium'}>
                                         <p>Medium</p>
                                     </div>
                                     </div>
                                 </div>
                                 <div className={Styles.linija}>
-                                    <p>Vežba:   Električno kolo sa i bez sijalice</p>
+                                    <p>Vežba:   Električno kolo sa dva otpornika</p>
                                     <div className={Styles.desno}>
-                                    <p>Vezba br. 7</p>
+                                    <p>Vezba br. 2</p>
                                     <div className={'diff hard'}>
                                         <p>Hard</p>
                                     </div>

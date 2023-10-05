@@ -53,6 +53,37 @@ const Profile = () => {
                 </div>
                 <h3 className={Styles.ov}>U koliko vaš termin uskoro počinje, sačekajte na ovoj stranici!</h3>
                 <h3 className={Styles.ov2}>U koliko niste rezervisali termin, to možete učiniti klikom <Link href="./zakazivanje" className={Styles.ov2Link}>ovde</Link> </h3>
+
+                <div className={Styles.main}>
+                    <p className={Styles.select}>U kolko je sada vaš termin, odaberite vežbu:</p>
+                    <div className={Styles.vezbe}>
+                        <div className={Styles.vezba} onClick={()=>{
+                            router.push('/maketa5')
+                        }}>
+                            <div>
+                                <h1>Vežba: 05</h1>
+                                <p>Elektricno kolo sa sijalicom i sa (ili bez) otpornika R1</p>
+                            </div>
+                            <Image src="/maketa5.png" width={524} height={505} className={Styles.slikaMakete} alt='maketa'></Image>
+                        </div>
+                        <div className={Styles.vezba} onClick={()=>{
+                            router.push('/maketa1');
+                        }}>
+                            <div>
+                                <h1>Vežba: 01</h1>
+                                <p>Elektricno kolo sa dva kondenzatora</p>
+                            </div>
+                            <Image src="/maketa2.jpg" width={524} height={505} className={Styles.slikaMakete} alt='maketa'></Image>
+                        </div>
+                        <div className={Styles.vezba}>
+                            <div>
+                                <h1>Vežba: 02</h1>
+                                <p>Elektricno kolo bez sijalice i sa dva otpornika</p>
+                            </div>
+                            <Image src="/maketa2.jpg" width={524} height={505} className={Styles.slikaMakete} alt='maketa'></Image>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

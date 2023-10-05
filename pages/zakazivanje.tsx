@@ -80,7 +80,7 @@ const Zakazivanje = () => {
                 
                 <div className={Styles.timePick}>
                     <button className='button' onClick={() =>{
-
+/*
                         const usersRef = collection(db, "user");
                         try {
                             setDoc(doc(usersRef, `${user?.uid}`), {
@@ -95,7 +95,7 @@ const Zakazivanje = () => {
                         }
                             
                             
-                        
+*/                        
                       
                     }}>zakaži</button>
                 </div>
@@ -106,6 +106,7 @@ const Zakazivanje = () => {
                 </div>
                 
             </div>
+            
         </div>
     );
 }

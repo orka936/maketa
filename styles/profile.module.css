@@ -195,6 +195,13 @@
 .obavestenje p{
     color: black !important;
 }
+.select{
+    font-weight: 500;
+    font-size: clamp(12px, 25px, 2vw);
+    color: black;
+    padding-top: 2rem;
+    text-align: center;
+}
 
 @media screen and (max-width: 1075px) {
     .summary{
