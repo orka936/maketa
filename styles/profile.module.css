@@ -1,6 +1,7 @@
 .full{
     display: grid;
     grid-template-columns: clamp(80px , 19%, 300px) auto;
+    background-color: black;
 }
 
 .nav{
@@ -123,6 +124,7 @@
 .vezba p{
     padding-left: 0.9rem;
     font-size: clamp(15px, 1.1vw, 27px);
+    color: white !important;
 }
 .evidencija{
     display: flex;
@@ -202,6 +204,7 @@
     padding-top: 2rem;
     text-align: center;
 }
+
 
 @media screen and (max-width: 1075px) {
     .summary{

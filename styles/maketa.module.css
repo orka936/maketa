@@ -250,12 +250,11 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        gap: 2rem;
     }
     .noviTop{
         display: flex;
         justify-content: right;
-        gap: 3rem;
+        gap: clamp(26px, 50px, 12%);
     }
     .slikaKond{
         width: clamp(95px, 196.5px, 16.675vw);
@@ -264,6 +263,28 @@
     .gap{
         height: clamp(3rem, 16rem, 8vw);
     }
+    .line{
+        position: absolute;
+        right: 7%;
+        top: 1%;
+        width: 22%;
+        height: 2%;
+    }
+    .line2{
+        position: absolute;
+        right: 27%;
+        top: -3%;
+        width: 2%;
+        height: 4%;
+    }
+    .line3{
+        position: absolute;
+        right: 7%;
+        top: 1%;
+        width: 2%;
+        height: 8%;
+    }
+    
 
     @media(max-width: 650px){
         .noviLeft{

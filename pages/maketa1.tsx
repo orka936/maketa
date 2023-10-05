@@ -81,10 +81,14 @@ const Maketa1 = () => {
             <div className={Styles.main}>
                 <div className={Styles.noviLeft}>
                     <div className={Styles.noviTop}>
-                        <Image src="/kondenzator.png" width={524} height={505} className={Styles.slikaKond} alt='maketa'></Image>
-                        <Image src="/kondenzator2.png" width={524} height={505} className={Styles.slikaKond} alt='maketa'></Image>
+                        <Image src="/kondenzator.png" width={524} height={505} className={Styles.slikaKond} alt=''></Image>
+                        <Image src="/kondenzator2.png" width={524} height={505} className={Styles.slikaKond} alt=''></Image>
                     </div>
+                    
                     <div className={Styles.maketa}>
+                        <Image src="/line.png" width={165} height={18} className={Styles.line} alt=''></Image>
+                        <Image src="/line.png" width={165} height={18} className={Styles.line2} alt=''></Image>
+                        <Image src="/line.png" width={165} height={18} className={Styles.line3} alt=''></Image>
 
                         <div className={`${Styles.box} ${Styles.c1a} ${Styles.wrong} ${b1a ? 'On' : 'Off'}`}></div>
                         <div className={`${Styles.box} ${Styles.c1b} ${b1b ? 'On' : 'Off'}`}></div>
@@ -104,6 +108,7 @@ const Maketa1 = () => {
                         <div className={`${Styles.box} ${Styles.c12} ${Styles.wrong} ${b12 ? 'On' : 'Off'}`}></div>
                     </div>
                 </div>
+                
                 
                 <div className={Styles.kontrole2}>
                     <div className={Styles.gap}></div>

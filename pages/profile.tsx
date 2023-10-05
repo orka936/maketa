@@ -67,7 +67,7 @@ const Profile = () => {
                                 <h1>Vežba: 01</h1>
                                 <p>Elektricno kolo sa dva kondenzatora</p>
                             </div>
-                            <Image src="/maketa2.jpg" width={524} height={505} className={Styles.slikaMakete} alt='maketa'></Image>
+                            <Image src="/maketa.png" width={524} height={505} className={Styles.slikaMakete} alt='maketa'></Image>
                         </div>
                         <div className={Styles.vezba}>
                             <div>
