@@ -80,7 +80,7 @@ const Zakazivanje = () => {
                 
                 <div className={Styles.timePick}>
                     <button className='button' onClick={() =>{
-                        console.log(value, user?.uid);
+
                         const usersRef = collection(db, "user");
                         try {
                             setDoc(doc(usersRef, `${user?.uid}`), {
