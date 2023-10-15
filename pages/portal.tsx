@@ -3,12 +3,22 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { userAccessToken, fetchUser } from '../utils/fetchUserDetails';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { FirebaseApp } from '../firebase-config';
+
+
+type User = {
+    uid: string
+}
+
 
 const Profile = () => {
 
+    const db = getFirestore(FirebaseApp);//---------------------FIRESTORE
+
     const router = useRouter();
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState<User | undefined>();
 
     useEffect(() => {
         const accessToken = userAccessToken();
@@ -31,6 +41,26 @@ const Profile = () => {
         localStorage.clear();
         router.push('/');
     }
+
+    const checkReservation = async (vezba: string) => {
+
+        const usersRef = await collection(db, "user");
+        const documents = await getDocs(usersRef);
+        if(!user) return;
+
+        documents.forEach((data: any) => {
+
+            let terminDo = new Date(data.data().Date);
+            terminDo.setHours(terminDo.getHours() + 1);
+            console.log(new Date(data.data().Date), new Date(Date.now()), new Date(terminDo), new Date(Date.now()) < new Date(terminDo));
+            if (data.data().Id === user.uid && new Date(Date.now()) > new Date(data.data().Date) && new Date(Date.now()) < terminDo){
+                router.push(vezba); 
+            }else{
+                alert('Trenutno nije vaš termin!');
+            }
+        })
+    }
+    
 
     return (
         <div className={Styles.full}>
@@ -58,7 +88,7 @@ const Profile = () => {
                     <p className={Styles.select}>U kolko je sada vaš termin, odaberite vežbu:</p>
                     <div className={Styles.vezbe}>
                         <div className={Styles.vezba} onClick={()=>{
-                            router.push('/maketa5')
+                            checkReservation('/maketa5');
                         }}>
                             <div>
                                 <h1>Vežba: 05</h1>
@@ -67,7 +97,7 @@ const Profile = () => {
                             <Image src="/maketa5.png" width={524} height={505} className={Styles.slikaMakete} alt='maketa'></Image>
                         </div>
                         <div className={Styles.vezba} onClick={()=>{
-                            router.push('/maketa1');
+                            checkReservation('/maketa1');
                         }}>
                             <div>
                                 <h1>Vežba: 01</h1>

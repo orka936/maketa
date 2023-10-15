@@ -204,7 +204,9 @@
     padding-top: 2rem;
     text-align: center;
 }
-
+.pot{
+    font-size: medium;
+}
 
 @media screen and (max-width: 1075px) {
     .summary{

@@ -13,6 +13,23 @@ body {
   width: 100%;
   height: 100vh;
 }
+
+/* DateTimePicker */
+
+
+.react-datetime-picker__inputGroup__minute{
+  display: none !important;
+}
+.react-datetime-picker__inputGroup__leadingZero{
+  display: none !important;
+}
+.react-datetime-picker__inputGroup__divider{
+  display: none !important;
+}
+.react-datetime-picker__clear-button{
+  display: none !important;
+}
+
 .svg{
   width: 100%;
   height: 100%;

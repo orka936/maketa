@@ -5,10 +5,33 @@ import { userAccessToken, fetchUser } from '../utils/fetchUserDetails';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
+import { getFirestore } from "firebase/firestore";
+import { collection, doc, addDoc, setDoc, getDocs } from "firebase/firestore";
+import { FirebaseApp } from '../firebase-config';
+
+type User = {
+    displayName: string,
+    uid : string
+}
+
 const Profile = () => {
 
+    const db = getFirestore(FirebaseApp);//---------------------FIRESTORE
+
     const router = useRouter();
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState<User | undefined>();
+    const [rez, setRez] = useState('');
+    
+    const rezervacije = async () =>{
+        const usersRef = collection(db, "user");
+        const documents = await getDocs(usersRef);
+        documents.forEach((data: any) => {
+            if (data.data().id == user?.uid){
+                setRez(data.data().Date);
+            }
+        });
+    }
+    rezervacije();
 
     useEffect(() => {
         const accessToken = userAccessToken();
@@ -47,7 +70,7 @@ const Profile = () => {
             <div className={Styles.right}>
                 <div className={Styles.dashboard}>
                     <div className={Styles.basicInfo}>
-                        <h2>Dobrodošli na vežbe</h2>
+                        <h2 >{(user?.displayName) ? user.displayName : 'Dobrodošli na vežbe'}</h2>
                     </div>
                     
                     <Image src="/logout.png" width={90} height={90} alt="help" className={Styles.LogOutImg} onClick={signOut}></Image>
@@ -124,7 +147,7 @@ const Profile = () => {
                         </div>
                         <div className={Styles.done}>
                             <h2>Rezervisane vežbe</h2>
-                            <p>-nema rezervacija</p>
+                            <p>{rez? '- ' + rez.split('T')[0] + ' ' + rez.split('T')[1].split(':')[0] + 'h' : '-nema rezervacija'}</p>
                         </div>
                     </div>
                 </div> 

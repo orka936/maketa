@@ -273,9 +273,9 @@
     .line2{
         position: absolute;
         right: 27%;
-        top: -3%;
+        top: -4%;
         width: 2%;
-        height: 4%;
+        height: 7%;
     }
     .line3{
         position: absolute;
@@ -283,6 +283,15 @@
         top: 1%;
         width: 2%;
         height: 8%;
+    }
+    .cc{
+        z-index: 1000;
+    }
+    .a{
+        border: none;
+    }
+    .cActive{
+        border: 3px solid red !important;
     }
     
 
