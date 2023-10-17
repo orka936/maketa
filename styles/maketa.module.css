@@ -246,43 +246,21 @@
         justify-content: center;
     }
 
-    .noviLeft{
+    .sema{
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
-    }
-    .noviTop{
-        display: flex;
-        justify-content: right;
-        gap: clamp(26px, 50px, 12%);
+        align-items: center;
+        
+        position: relative;
     }
     .slikaKond{
         width: clamp(95px, 196.5px, 16.675vw);
         height: clamp(91.2px, 189.375px, 16vw);
+        user-select: none;
+        margin: 1rem;
     }
     .gap{
         height: clamp(3rem, 16rem, 8vw);
-    }
-    .line{
-        position: absolute;
-        right: 7%;
-        top: 1%;
-        width: 22%;
-        height: 2%;
-    }
-    .line2{
-        position: absolute;
-        right: 27%;
-        top: -4%;
-        width: 2%;
-        height: 7%;
-    }
-    .line3{
-        position: absolute;
-        right: 7%;
-        top: 1%;
-        width: 2%;
-        height: 8%;
     }
     .cc{
         z-index: 1000;
@@ -291,9 +269,20 @@
         border: none;
     }
     .cActive{
-        border: 3px solid red !important;
+        border: 2px solid red !important;
     }
-    
+    .maketaZaC{
+        background-image: url('../public/maketa.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        width: clamp(167px, 370px, 22vw);
+        height: clamp(160px, 355px, 21vw);
+        margin: 3rem 0 3rem 0;
+    }
+    .line{
+        position: absolute;
+    }
 
     @media(max-width: 650px){
         .noviLeft{

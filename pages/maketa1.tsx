@@ -9,6 +9,8 @@ import Modal from '../utils/modal';
 
 const Maketa1 = () => {
 
+    const [vezba, setVezba] = useState('');
+
     const [C1, setC1] = useState(false);
     const [C2, setC2] = useState(false);
 
@@ -25,41 +27,40 @@ const Maketa1 = () => {
 
         onValue(ref(database, "C1"), (snapshot) => setC1(!!snapshot.val()));
         onValue(ref(database, "C2"), (snapshot) => setC2(!!snapshot.val()));
+        onValue(ref(database, "vezba"), (snapshot) => setVezba(snapshot.val()));
     }, []);
+
+    set(ref(database, "vezba"), 1);
 
     return (
         <>
             <h1 className={Styles.naslov}>Vežba 01: Električno kolo sa 2 kondenzatora</h1>
             <Modal>
                 <h2>Vežba 1:</h2>
-                <h3>Zadatak vezbe ...</h3>
+                <h3>Ova vežba je malo drugačija od ostalih, kao š</h3>
             </Modal>
 
-            <div className={Styles.main}>
-                <div className={Styles.noviLeft}>
-                    <div className={Styles.noviTop}>
-                        <div className={`${Styles.cc} ${C1? Styles.cActive : Styles.a}`} onClick={()=>{
-                            
-                            set(ref(database, "C1"), +!C1);
-                            setC1(!C1);
-                            
-                        }}>
-                            <Image src="/kondenzator.png" width={524} height={505} className={Styles.slikaKond} alt=''></Image>
-                        </div>
-                        
-                        <div className={`${Styles.cc} ${C2? Styles.cActive : Styles.a}`} onClick={() =>{
-                            
-                            set(ref(database, "C2"), +!C2);
-                            setC2(!C2);
-                            
-                        }}>
-                            <Image src="/kondenzator2.png" width={524} height={505} className={Styles.slikaKond} alt=''></Image>
-                        </div>
-                    </div>
-                    <div className={Styles.maketa}></div>
-                </div>
-            </div>
+                <div className={Styles.sema}>
 
+                    <div className={Styles.cc} onClick={()=>{
+                        
+                        set(ref(database, "C1"), +!C1);
+                        setC1(!C1);
+                        
+                    }}>
+                        <Image src="/kondenzator.png" width={524} height={505} className={`${Styles.slikaKond} ${C1? Styles.cActive : Styles.a}`} alt=''></Image>
+                    </div>
+                    
+                    <div className={Styles.cc} onClick={() =>{
+                        
+                        set(ref(database, "C2"), +!C2);
+                        setC2(!C2);
+                        
+                    }}>
+                        <Image src="/kondenzator2.png" width={524} height={505} className={`${Styles.slikaKond} ${C2? Styles.cActive : Styles.a}`} alt=''></Image>
+                    </div>
+                    <div className={Styles.maketaZaC}></div>
+                </div>
             
         </>
     );

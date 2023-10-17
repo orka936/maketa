@@ -8,6 +8,8 @@ import Modal from '../utils/modal';
 
 const Maketa5 = () => {
 
+    const [vezba, setVezba] = useState('');
+
     const [b1a, setB1a] = useState(false);
     const [b1b, setB1b] = useState(false);
     const [b2, setB2] = useState(false);
@@ -42,7 +44,10 @@ const Maketa5 = () => {
         onValue(ref(database, "r5"), (snapshot) => setB6(!!snapshot.val()));
         onValue(ref(database, "r6"), (snapshot) => setB8(!!snapshot.val()));
         onValue(ref(database, "r7"), (snapshot) => setB9(!!snapshot.val()));
+        onValue(ref(database, "vezba"), (snapshot) => setVezba(snapshot.val()));
     }, []);
+
+    set(ref(database, "vezba"), 5);
 
     return (
         <>
