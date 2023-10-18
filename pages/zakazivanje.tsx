@@ -108,7 +108,7 @@ const Zakazivanje = () => {
                             if (data.data().Date == newDate) found = true;
                         })
                         if (!user || found){
-                            alert('Termin je zauzet')
+                            alert('Termin je zauzet');
                             return;
                         }
 

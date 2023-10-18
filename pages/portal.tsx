@@ -46,19 +46,27 @@ const Profile = () => {
 
         const usersRef = await collection(db, "user");
         const documents = await getDocs(usersRef);
+        let pom = false;
+
+
         if(!user) return;
 
         documents.forEach((data: any) => {
 
             let terminDo = new Date(data.data().Date);
             terminDo.setHours(terminDo.getHours() + 1);
-            console.log(new Date(data.data().Date), new Date(Date.now()), new Date(terminDo), new Date(Date.now()) < new Date(terminDo));
+
             if (data.data().Id === user.uid && new Date(Date.now()) > new Date(data.data().Date) && new Date(Date.now()) < terminDo){
-                router.push(vezba); 
-            }else{
-                alert('Trenutno nije vaš termin!');
+                pom = true;
+                router.push(vezba);
+                return;
             }
-        })
+            
+        });
+        if(!pom){
+            alert('Trenutno nije vaš termin!');
+        }
+        
     }
     
 

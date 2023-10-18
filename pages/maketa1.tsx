@@ -17,16 +17,13 @@ const Maketa1 = () => {
     const [up, setUp] = useState(false);
 
     const [parametar, setParametar] = useState("");
-    const [parametar2, setParametar2] = useState("");
-    const [parametar3, setParametar3] = useState("");
-    const [parametar4, setParametar4] = useState("");
 
     
 
     useEffect(() => {
 
-        onValue(ref(database, "C1"), (snapshot) => setC1(!!snapshot.val()));
-        onValue(ref(database, "C2"), (snapshot) => setC2(!!snapshot.val()));
+        onValue(ref(database, "r2"), (snapshot) => setC1(!!snapshot.val()));
+        onValue(ref(database, "r6"), (snapshot) => setC2(!!snapshot.val()));
         onValue(ref(database, "vezba"), (snapshot) => setVezba(snapshot.val()));
     }, []);
 
@@ -40,27 +37,42 @@ const Maketa1 = () => {
                 <h3>Ova vežba je malo drugačija od ostalih, kao š</h3>
             </Modal>
 
-                <div className={Styles.sema}>
+            <div className={Styles.sema}>
 
-                    <div className={Styles.cc} onClick={()=>{
-                        
-                        set(ref(database, "C1"), +!C1);
-                        setC1(!C1);
-                        
-                    }}>
-                        <Image src="/kondenzator.png" width={524} height={505} className={`${Styles.slikaKond} ${C1? Styles.cActive : Styles.a}`} alt=''></Image>
-                    </div>
+                <div className={Styles.cc} onClick={()=>{
                     
-                    <div className={Styles.cc} onClick={() =>{
-                        
-                        set(ref(database, "C2"), +!C2);
-                        setC2(!C2);
-                        
-                    }}>
-                        <Image src="/kondenzator2.png" width={524} height={505} className={`${Styles.slikaKond} ${C2? Styles.cActive : Styles.a}`} alt=''></Image>
-                    </div>
-                    <div className={Styles.maketaZaC}></div>
+                    set(ref(database, "r2"), +!C1);
+                    setC1(!C1);
+                    
+                }}>
+                    <Image src="/kondenzator.png" width={524} height={505} className={`${Styles.slikaKond} ${C1? Styles.cActive : Styles.a}`} alt=''></Image>
                 </div>
+                
+                <div className={Styles.cc} onClick={() =>{
+                    
+                    set(ref(database, "r6"), +!C2);
+                    setC2(!C2);
+                    
+                }}>
+                    <Image src="/kondenzator2.png" width={524} height={505} className={`${Styles.slikaKond} ${C2? Styles.cActive : Styles.a}`} alt=''></Image>
+                </div>
+                <div className={Styles.maketaZaC}></div>
+            </div>
+            
+            <div className={Styles.merenja}>
+                <div className={Styles.merenjaBtn}>
+                    <button className='button' onClick={() => {
+                        onValue(ref(database, "c"), (snapshot) => { setParametar(snapshot.val());});
+                    }
+                }>prikaži</button>
+                </div>
+                <p>prikaži rezultate merenja u realnom vremenu</p>
+                <div className={Styles.svi}>
+                    <div className={Styles.rez}>
+                        <p>C= {parametar ? parametar : "-"} pF</p>
+                    </div>
+                </div>
+            </div>
             
         </>
     );

@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 import { getFirestore } from "firebase/firestore";
-import { collection, doc, addDoc, setDoc, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { FirebaseApp } from '../firebase-config';
 
 type User = {
@@ -23,7 +23,7 @@ const Profile = () => {
     const [rez, setRez] = useState('');
     
     const rezervacije = async () =>{
-        const usersRef = collection(db, "user");
+        const usersRef = await collection(db, "user");
         const documents = await getDocs(usersRef);
         documents.forEach((data: any) => {
             if (data.data().id == user?.uid){
@@ -147,7 +147,7 @@ const Profile = () => {
                         </div>
                         <div className={Styles.done}>
                             <h2>Rezervisane vežbe</h2>
-                            <p>{rez? '- ' + rez.split('T')[0] + ' ' + rez.split('T')[1].split(':')[0] + 'h' : '-nema rezervacija'}</p>
+                            <p>{rez? '- ' + rez?.split('T')[0] + ' ' + rez?.split('T')[1]?.split(':')[0] + ' h ' : '-nema rezervacija'}</p>
                         </div>
                     </div>
                 </div> 
