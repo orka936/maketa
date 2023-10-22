@@ -91,6 +91,11 @@
   height: clamp( 125px , 250px, 33vw);
 }
 
+.helpCimg{
+  width: clamp(300px, 800px, 80%);
+  height: clamp(250px, 666.7px, 66.7%);
+}
+
 .exit{
   background-color: var(--blue);
   font-weight: 600;

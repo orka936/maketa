@@ -31,6 +31,13 @@
         margin: 1.2rem 0;
         gap: 1rem;
     }
+    .main2{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        margin: 1.2rem 0;
+        gap: 1rem;
+    }
     .maketa{
         background-image: url('../public/maketa.png');
         background-repeat: no-repeat;
@@ -246,53 +253,30 @@
         justify-content: center;
     }
 
-    .sema{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-        position: relative;
-    }
-    .slikaKond{
-        width: clamp(95px, 196.5px, 16.675vw);
-        height: clamp(91.2px, 189.375px, 16vw);
-        user-select: none;
-        margin: 1rem;
-    }
-    .gap{
-        height: clamp(3rem, 16rem, 8vw);
-    }
-    .cc{
-        z-index: 1000;
-    }
-    .a{
-        border: none;
-    }
-    .cActive{
-        border: 2px solid red !important;
-    }
     .maketaZaC{
-        background-image: url('../public/maketa.png');
+        background-image: url('../public/maketa2C.png');
         background-repeat: no-repeat;
         background-size: cover;
 
-        width: clamp(167px, 370px, 22vw);
-        height: clamp(160px, 355px, 21vw);
-        margin: 3rem 0 3rem 0;
+        width: clamp(300px, 400px, 30vw);
+        height: clamp(630px, 840px, 63vw);
+        margin-bottom: 2rem;
+        justify-self: end;
+
+        position: relative;
     }
-    .line{
-        position: absolute;
+
+    .live{
+        position: fixed;
+        bottom: 2%;
+        right: 2%;
+        font-size: large;
     }
 
     @media(max-width: 650px){
         .noviLeft{
             min-height: 600px;
             padding-bottom: 3rem;
-        }
-        .kontrole2{
-            padding-top: 8rem;
-            min-height: 500px;
-            width: 100%;
         }
     }
 
@@ -306,6 +290,13 @@
             justify-items: center;
             align-content: center;
         }
+        .main2{
+            grid-template-columns: 1fr;
+            grid-template-rows: 630px 200px;
+        }
+        .maketaZaC{
+            justify-self: center;
+        }
         .maketa{
             justify-self: center;
         }
@@ -314,6 +305,12 @@
             flex-wrap: wrap;
             width: 100%;
             padding: 0 3rem;
+        }
+        .kontrole2{
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
         }
     }
 

@@ -2,13 +2,12 @@ import Style from '../styles/modal.module.css';
 import { FC, useState, useCallback, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
-import Modal2 from '../utils/help';
 
 interface Modal {
     children : any
 }
 
-    const Modal: FC<Modal> = ({children}) => {
+    const Modal: FC<Modal> = ({children}, {childrenHelp}) => {
 
         const [open, setOpen] = useState(false);
 
@@ -18,12 +17,8 @@ interface Modal {
 
     return (
         <>
-        <div className={Style.meni}>
-            <h2 className={Style.opener} onClick={handleModal}>Zadatak vežbe</h2>
-            <Modal2>
-            <h2>Dodatno objašnjenje:</h2>
-            </Modal2>
-        </div>
+        
+        <h2 className={Style.opener} onClick={handleModal}>Zadatak vežbe</h2>
         
         {open &&
         createPortal(
@@ -31,7 +26,7 @@ interface Modal {
             <div onClick={(e) => e.stopPropagation()} className={Style.modalContent}>
                 <button className={Style.exit} onClick={handleModal}>x</button>
                 {children}
-                <p><b><i>legenda</i></b></p>
+                <h5><b><i>legenda</i></b></h5>
                 <div className={Style.leg}>
                     <Image src={'/jumper.PNG'} alt="jp" width={100} height={30}/>
                     <h3>džamper (jumper)</h3>

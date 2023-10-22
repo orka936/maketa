@@ -39,6 +39,16 @@ body {
   position: absolute;
   transition-duration: 2s;
 }
+.Csvg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -0.5%;
+  left: -0.6%;
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+  transition-duration: 3s;
+}
 
 Modal2{
   overflow-y: auto;

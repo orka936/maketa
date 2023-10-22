@@ -94,6 +94,7 @@ const Profile = () => {
 
                 <div className={Styles.main}>
                     <p className={Styles.select}>U kolko je sada vaš termin, odaberite vežbu:</p>
+                    <p  className={Styles.ov3}>(Vežba 2 nije dostupna,  već je samo tu radi prikaza dizajna, kako ce sajt izgledati sa više vežbi)</p>
                     <div className={Styles.vezbe}>
                         <div className={Styles.vezba} onClick={()=>{
                             checkReservation('/maketa5');

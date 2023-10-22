@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import Styles from '../styles/maketa.module.css';
+import Style from '../styles/modal.module.css'
 import database from '../utils/db';
+import Image from 'next/image';
 
 import { ref, set, onValue } from "firebase/database";
 import Modal from '../utils/modal';
+import Modal2 from '../utils/help';
 
 
 const Maketa5 = () => {
@@ -52,36 +55,73 @@ const Maketa5 = () => {
     return (
         <>
             <h1 className={Styles.naslov}>Vežba 05: Električno kolo sa sijalicom</h1>
-            <Modal>
-                <h2>Vežba 5:</h2>
-                <h3>Povezati kolo, tako da se maketa napaja baterijom(BAT. 9V) i da struja prolazi kroz sijalicu </h3>
+            <div className={Style.meni}>
+                <Modal>
+                    <h2>Vežba 5:</h2>
+                    <h3>Povezati kolo, tako da se maketa napaja baterijom(BAT. 9V) i da struja prolazi kroz sijalicu </h3>
 
-                <h3>
-                    slučaj a: JP3 je uključen, struja ne prolazi kroz R1, očitati rezultate merenja struje, napona Vs - na sijalici, Vr - na otporniku,
-                    <br />Izračunati (Omov zakon) otpornost sijalice Rs.
-                </h3>
+                    <h3>
+                        slučaj a: JP3 je uključen, struja ne prolazi kroz R1, očitati rezultate merenja struje, napona Vs - na sijalici, Vr - na otporniku,
+                        <br />Izračunati (Omov zakon) otpornost sijalice Rs.
+                    </h3>
 
-                <h3>
-                    Zatim slučaj b: isključiti JP3, sada struja prolazi kroz R1, ponovno očitati rezultate merenja struje i napona,
-                    <br />Ponovno izračunati (Omov zakon) otpornost sijalice Rs.
-                </h3>
+                    <h3>
+                        Zatim slučaj b: isključiti JP3, sada struja prolazi kroz R1, ponovno očitati rezultate merenja struje i napona,
+                        <br />Ponovno izračunati (Omov zakon) otpornost sijalice Rs.
+                    </h3>
 
-                <h2>
-                    Pitanja:
-                </h2>
-                <h3>
-                    Da li je dobijena vrednost otpornosti sijalice ista
-                    u slučaju a i b ?
-                </h3>
-                <h3>
-                    Štaje to PTC (pozitivni temperaturni
-                    koeficijent)?
-                </h3>
-                <h3>
-                    Objasniti dobijene rezultate.
-                </h3>
-            </Modal>
-
+                    <h2>
+                        Pitanja:
+                    </h2>
+                    <h3>
+                        Da li je dobijena vrednost otpornosti sijalice ista
+                        u slučaju a i b ?
+                    </h3>
+                    <h3>
+                        Štaje to PTC (pozitivni temperaturni
+                        koeficijent)?
+                    </h3>
+                    <h3>
+                        Objasniti dobijene rezultate.
+                    </h3>
+                </Modal>
+                <Modal2>
+                <h2>Džamperi:</h2>
+                    <h3>
+                        Kontakt sa dve iglice : <br />
+                        kada su iglice
+                        slobodne, kolo između njih je otvoreno
+                        (prekinuto, u prekidu). Kada se na iglice
+                        postavi kratkospojnik (džamper, engl.
+                        Jumper) te dve iglice su međusobno
+                        spojene (zatvoreno, nema prekida).
+                        Kontakt sa dve iglice i kratkospojnikom
+                        ponaša se kao prekidač (OTVOREN :
+                        nema kratkospojnika, ZATVOREN :
+                        postavljen kratkospojnik).
+                    </h3>
+                    <Image src={'/help1.PNG'} alt="jp" width={500} height={300} className={Style.help1}/>
+                    <h3>
+                        Kontakt sa tri iglice se koristi kao
+                        prebacivač (preklopnik) za izbor sa DVE
+                        opcije.
+                        <br />
+                        Primer je kontakt
+                        sa tri iglice JP1: postavljanjem
+                        kratkospojnika u desni položaj, (srednja
+                        iglica JP1 vezana na BAT. (slika 3, pod b))
+                        tako da se maketa napaja iz sopstvene
+                        baterije (oznaka BAT.9V). Postavljanjem
+                        kratkospojnika u levi položaj, na maketu
+                        je preko redne stezaljke K1 moguće
+                        priključiti napon iz nekog spoljnjog izvora
+                        (oznaka EXT. (slika 3, pod c), pa maketa
+                        dobija napajanje iz njega).
+                    </h3>
+                    <Image src={'/help2.PNG'} alt="help1" width={600} height={250} className={Style.help2}/>
+                </Modal2>
+            </div>
+            
             <div className={Styles.main}>
                 <div className={Styles.maketa}>
 
@@ -280,7 +320,9 @@ const Maketa5 = () => {
                     </div>
                 </div>
             </div>
-            
+            <div className={Styles.live}>
+                <a href=''>live</a>
+            </div>
         </>
     );
 }
