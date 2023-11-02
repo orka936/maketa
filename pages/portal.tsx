@@ -97,22 +97,13 @@ const Profile = () => {
                     <p  className={Styles.ov3}>(Vežba 2 nije dostupna,  već je samo tu radi prikaza dizajna, kako ce sajt izgledati sa više vežbi)</p>
                     <div className={Styles.vezbe}>
                         <div className={Styles.vezba} onClick={()=>{
-                            checkReservation('/maketa5');
-                        }}>
-                            <div>
-                                <h1>Vežba: 05</h1>
-                                <p>Elektricno kolo sa sijalicom i sa (ili bez) otpornika R1</p>
-                            </div>
-                            <Image src="/maketa5.png" width={524} height={505} className={Styles.slikaMakete} alt='maketa'></Image>
-                        </div>
-                        <div className={Styles.vezba} onClick={()=>{
                             checkReservation('/maketa1');
                         }}>
                             <div>
                                 <h1>Vežba: 01</h1>
                                 <p>Elektricno kolo sa dva kondenzatora</p>
                             </div>
-                            <Image src="/maketa.png" width={524} height={505} className={Styles.slikaMakete} alt='maketa'></Image>
+                            <Image src="/kondenzator2.png" width={524} height={505} className={Styles.slikaMakete} alt='maketa'></Image>
                         </div>
                         <div className={Styles.vezba}>
                             <div>
@@ -120,6 +111,15 @@ const Profile = () => {
                                 <p>Elektricno kolo bez sijalice i sa dva otpornika</p>
                             </div>
                             <Image src="/maketa2.jpg" width={524} height={505} className={Styles.slikaMakete} alt='maketa'></Image>
+                        </div>
+                        <div className={Styles.vezba} onClick={()=>{
+                            checkReservation('/maketa5');
+                        }}>
+                            <div>
+                                <h1>Vežba: 05</h1>
+                                <p>Elektricno kolo sa sijalicom i sa (ili bez) otpornika R1</p>
+                            </div>
+                            <Image src="/maketa5.png" width={524} height={505} className={Styles.slikaMakete} alt='maketa'></Image>
                         </div>
                     </div>
                 </div>
