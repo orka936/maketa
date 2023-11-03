@@ -63,7 +63,7 @@ export default function Home() {
       {/* Futer */}
       <footer className={styles.footer}>
         <p>
-          powered by <span className={styles.blue}>orka</span>
+          udaljena <span className={styles.blue}>OET</span> laboratorija
         </p>
       </footer>
     </div>

@@ -68,7 +68,7 @@ const Zakazivanje = () => {
     return (
         <div className={Styles.full}>
             <div className={Styles.nav}>
-                <h1 className={Styles.naslov}>Vežbe</h1>
+                <h1 className={Styles.naslov}><span className={Styles.podNaslov}>udaljena</span><br />OET<br /><span className={Styles.podNaslov}>laboratorija</span></h1>
                 <div className={Styles.navBar}>
                     <Link href="./profile" className={'side'}>pregled</Link>
                     <Link href="./profile" className={'side active'}>zakazivanje</Link>

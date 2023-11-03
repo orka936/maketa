@@ -22,16 +22,7 @@ const Profile = () => {
     const [user, setUser] = useState<User | undefined>();
     const [rez, setRez] = useState('');
     
-    const rezervacije = async () =>{
-        const usersRef = await collection(db, "user");
-        const documents = await getDocs(usersRef);
-        documents.forEach((data: any) => {
-            if (data.data().id == user?.uid){
-                setRez(data.data().Date);
-            }
-        });
-    }
-    rezervacije();
+    
 
     useEffect(() => {
         const accessToken = userAccessToken();
@@ -50,6 +41,21 @@ const Profile = () => {
         
     }, [router]);
 
+    const rezervacije = async () =>{
+        const usersRef = await collection(db, "user");
+        const documents = await getDocs(usersRef);
+
+        if(!user) return;
+
+        documents.forEach((data: any) => {
+            if (user.uid == data.data().Id){
+                setRez(data.data().Date);
+            }
+        });
+        
+    }
+    rezervacije();
+
     const signOut = () => {
         localStorage.clear();
         router.push('/');
@@ -58,7 +64,7 @@ const Profile = () => {
     return (
         <div className={Styles.full}>
             <div className={Styles.nav}>
-                <h1 className={Styles.naslov}>Vežbe</h1>
+                <h1 className={Styles.naslov}><span className={Styles.podNaslov}>udaljena</span><br />OET<br /><span className={Styles.podNaslov}>laboratorija</span></h1>
                 <div className={Styles.navBar}>
                 <Link href="./profile" className={'side active'}>pregled</Link>
                     <Link href="./zakazivanje" className={'side'}>zakazivanje</Link>
@@ -116,7 +122,7 @@ const Profile = () => {
 
 
                                 <div className={Styles.linija}>
-                                    <p>Vežba:   Električno kolo sa dva kondenzatora</p>
+                                    <p>Vežba:   Električno kolo sa pločastim kondenzatorima</p>
                                     <div className={Styles.desno}>
                                     <p>Vezba br. 1</p>
                                     <div className={'diff easy'}>
@@ -149,7 +155,7 @@ const Profile = () => {
                         </div>
                         <div className={Styles.done}>
                             <h2>Rezervisane vežbe</h2>
-                            <p>{rez? '- ' + rez?.split('T')[0] + ' ' + rez?.split('T')[1]?.split(':')[0] + ' h ' : '-nema rezervacija'}</p>
+                            <p>{rez? rez : '-nema rezervacija'}</p>
                         </div>
                     </div>
                 </div> 

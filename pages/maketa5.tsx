@@ -3,15 +3,25 @@ import Styles from '../styles/maketa.module.css';
 import Style from '../styles/modal.module.css'
 import database from '../utils/db';
 import Image from 'next/image';
+import { userAccessToken, fetchUser } from '../utils/fetchUserDetails';
+import { useRouter } from 'next/router';
 
 import { ref, set, onValue } from "firebase/database";
 import Modal from '../utils/modal';
 import Modal2 from '../utils/help';
 
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { FirebaseApp } from '../firebase-config';
+
+type User = {
+    uid: string
+}
 
 const Maketa5 = () => {
 
-    const [vezba, setVezba] = useState('');
+    const db = getFirestore(FirebaseApp);//---------------------FIRESTORE
+    
+    const [k, setK] = useState(false);
 
     const [b1a, setB1a] = useState(false);
     const [b1b, setB1b] = useState(false);
@@ -37,6 +47,8 @@ const Maketa5 = () => {
     const [parametar3, setParametar3] = useState("");
     const [parametar4, setParametar4] = useState("");
 
+    const router = useRouter();
+    const [user, setUser] = useState<User | undefined>();
     
 
     useEffect(() => {
@@ -47,10 +59,60 @@ const Maketa5 = () => {
         onValue(ref(database, "r5"), (snapshot) => setB6(!!snapshot.val()));
         onValue(ref(database, "r6"), (snapshot) => setB8(!!snapshot.val()));
         onValue(ref(database, "r7"), (snapshot) => setB9(!!snapshot.val()));
-        onValue(ref(database, "vezba"), (snapshot) => setVezba(snapshot.val()));
     }, []);
 
+    useEffect(() => {
+        const accessToken = userAccessToken();
+
+        if(!accessToken){
+            router.push('/');
+        }
+
+        try{
+            const [userInfo] = fetchUser();
+            setUser(userInfo);
+        }
+        catch(e){
+            console.log(e);
+        }
+        
+    }, [router]);
+
+    const checkReservation = async () => {
+
+        const usersRef = await collection(db, "user");
+        const documents = await getDocs(usersRef);
+        let pom = false;
+
+
+        if(!user) return;
+
+        documents.forEach((data: any) => {
+
+            let terminDo = new Date(data.data().Date);
+            terminDo.setHours(terminDo.getHours() + 1);
+
+            if (data.data().Id === user.uid && new Date(Date.now()) > new Date(data.data().Date) && new Date(Date.now()) < terminDo){
+                pom = true;
+            }
+            
+        });
+        if(!pom){
+            router.push('/');
+        }
+        
+    }
+    checkReservation();
+
+
     set(ref(database, "vezba"), 5);
+    set(ref(database, "r1"), 0);
+    set(ref(database, "r2"), 0);
+    set(ref(database, "r3"), 0);
+    set(ref(database, "r4"), 0);
+    set(ref(database, "r5"), 0);
+    set(ref(database, "r6"), 0);
+    set(ref(database, "r7"), 0);
 
     return (
         <>
@@ -321,7 +383,13 @@ const Maketa5 = () => {
                 </div>
             </div>
             <div className={Styles.live}>
-                <a href=''>live</a>
+                <p className={`${k? 'none' : ''}`} onClick={()=>{
+                    setK(true);
+                }}>kamera</p>
+                <iframe src="http://91.187.148.150:8082/" width={650} height={485} className={`${Styles.frame} ${k? '' : 'none'}`}></iframe>
+                <p className={`${Styles.x} ${k? '' : 'none'}`} onClick={()=>{
+                    setK(false);
+                }}>X</p>
             </div>
         </>
     );

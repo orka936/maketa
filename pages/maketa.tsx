@@ -42,6 +42,7 @@ const Maketa = () => {
                 <h3>Zadatak ove vežbe je upoznavanje sa okruženjem u kojem ćete raditi vežbe</h3>
                 <h3>Ovoj stranici pristup ima svaki učenik i bez zakazivanja!</h3>
                 <h3>Promene na ovoj maketi neće se prenositi na fizičku maketu!</h3>
+                <h4>(napravljena po principu vežbe 05)</h4>
             </Modal>
 
             <div className={Styles.main}>

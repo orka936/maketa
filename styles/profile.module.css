@@ -12,10 +12,13 @@
 .naslov{
     width: 100%;
     font-size: clamp(19px, 3vw, 51px);
-    padding-left: clamp(-10px, 20%, 60px);
     color: white !important;
+    line-height: clamp(12px, 2vw, 28px) ;
+    text-align: center;
 }
-
+.podNaslov{
+    font-size: clamp(10px, 1vw, 20px);
+}
 .navBar{
     height: 40rem;
     width: 100%;
