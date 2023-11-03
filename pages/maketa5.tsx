@@ -386,7 +386,7 @@ const Maketa5 = () => {
                 <p className={`${k? 'none' : ''}`} onClick={()=>{
                     setK(true);
                 }}>kamera</p>
-                <iframe src="http://91.187.148.150:8082/" width={650} height={485} className={`${Styles.frame} ${k? '' : 'none'}`}></iframe>
+                <img alt='maketa' src='http://91.187.148.150:8082/' width={650} height={485} className={`${Styles.frame} ${k? '' : 'none'}`} />
                 <p className={`${Styles.x} ${k? '' : 'none'}`} onClick={()=>{
                     setK(false);
                 }}>X</p>
