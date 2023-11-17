@@ -12,6 +12,7 @@ import Modal2 from '../utils/help';
 
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import { FirebaseApp } from '../firebase-config';
+import Link from 'next/link';
 
 type User = {
     uid: string
@@ -240,18 +241,25 @@ const Maketa1 = () => {
                     </div>
                 </div>
             </div>
-            <div className={Styles.live}>
-                <p className={`${k? 'none' : ''}`} onClick={()=>{
-                    setK(true);
-                }}>kamera</p>
-                <iframe src="http://91.187.148.150:8082/" width={650} height={485} className={`${Styles.frame} ${k? '' : 'none'}`}></iframe>
-                <p className={`${Styles.x} ${k? '' : 'none'}`} onClick={()=>{
-                    setK(false);
-                }}>X</p>
-            </div>
             
+            <div className={Styles.live}>
+                <Link href={"http://91.187.148.150:8081"} legacyBehavior>
+                    <a target='_blank'>kamera</a>
+                </Link>
+            </div>
         </>
     );
 }
+/*
+<div className={Styles.live}>
+    <p className={`${k? 'none' : ''}`} onClick={()=>{
+        setK(true);
+    }}>kamera</p>
+    <iframe src="http://91.187.148.150:8082/" width={650} height={485} className={`${Styles.frame} ${k? '' : 'none'}`}></iframe>
+    <p className={`${Styles.x} ${k? '' : 'none'}`} onClick={()=>{
+        setK(false);
+    }}>X</p>
+</div>
 
+*/
 export default Maketa1;

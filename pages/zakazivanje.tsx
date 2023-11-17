@@ -137,6 +137,7 @@ const Zakazivanje = () => {
                     <p>Moguće je zakazati samo jedan termin!</p>
                     <p>Sledeći termin je moguće zakazati tek nakon što prisustvujete prvom(ili on istekne)</p>
                     <p>U koliko zakažete više termina od jednom, rezervacija će važiti samo za poslednji, ostali će biti izbrisani!</p>
+                    <h6>(termin u 12:00 je nemoguce zakazati)</h6>
                 </div>
                 
             </div>

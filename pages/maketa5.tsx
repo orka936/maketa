@@ -12,6 +12,8 @@ import Modal2 from '../utils/help';
 
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import { FirebaseApp } from '../firebase-config';
+import Link from 'next/link';
+
 
 type User = {
     uid: string
@@ -382,17 +384,26 @@ const Maketa5 = () => {
                     </div>
                 </div>
             </div>
+            
             <div className={Styles.live}>
-                <p className={`${k? 'none' : ''}`} onClick={()=>{
-                    setK(true);
-                }}>kamera</p>
-                <img alt='maketa' src='http://91.187.148.150:8082/' width={650} height={485} className={`${Styles.frame} ${k? '' : 'none'}`} />
-                <p className={`${Styles.x} ${k? '' : 'none'}`} onClick={()=>{
-                    setK(false);
-                }}>X</p>
+                <Link href={"http://91.187.148.150:8081"} legacyBehavior>
+                    <a target='_blank'>kamera</a>
+                </Link>
             </div>
         </>
     );
 }
+/*
+<div className={Styles.live}>
+                
+<p className={`${k? 'none' : ''}`} onClick={()=>{
+    setK(true);
+}}>kamera</p>
 
+
+<p className={`${Styles.x} ${k? '' : 'none'}`} onClick={()=>{
+    setK(false);
+}}>X</p>
+</div>
+*/
 export default Maketa5;
