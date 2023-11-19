@@ -108,13 +108,7 @@ const Maketa5 = () => {
 
 
     set(ref(database, "vezba"), 5);
-    set(ref(database, "r1"), 0);
-    set(ref(database, "r2"), 0);
-    set(ref(database, "r3"), 0);
-    set(ref(database, "r4"), 0);
-    set(ref(database, "r5"), 0);
-    set(ref(database, "r6"), 0);
-    set(ref(database, "r7"), 0);
+
 
     return (
         <>
