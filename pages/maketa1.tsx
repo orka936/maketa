@@ -197,8 +197,8 @@ const Maketa1 = () => {
                 <div className={Styles.maketaZaC}>
 
                     <svg width="465" height="1056" viewBox="0 0 460 1048" fill="none" xmlns="http://www.w3.org/2000/svg" className={`${'Csvg'} ${C2? 'a6' : ''}`}>
-                        <path d="M419 646V553H354" stroke="#FF0000" stroke-width="7"/>
-                        <path d="M428 646V540H354" stroke="#FF0000" stroke-width="7"/>
+                        <path d="M419 646V553H354" stroke="#0070f3" stroke-width="7"/>
+                        <path d="M428 646V540H354" stroke="#0070f3" stroke-width="7"/>
                     </svg>
                     <svg width="465" height="1056" viewBox="0 0 460 1048" fill="none" xmlns="http://www.w3.org/2000/svg" className={`${'Csvg'} ${C1? 'a6' : ''}`}>
                         <path d="M419 646V249H354" stroke="#FF0000" stroke-width="7"/>
