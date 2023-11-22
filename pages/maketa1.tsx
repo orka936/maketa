@@ -237,7 +237,8 @@ const Maketa1 = () => {
                 <p>prikaži rezultate merenja u realnom vremenu</p>
                 <div className={Styles.svi}>
                     <div className={Styles.rez}>
-                        <p>C= {parametar} pF</p>
+                        
+                        <p>C= {(parametar=='142')? '-' : parametar} pF</p>
                     </div>
                 </div>
             </div>
